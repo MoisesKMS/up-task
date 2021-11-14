@@ -3,7 +3,7 @@
 
     <div class="contenedor-sm">
         <p class="descripcion-pagina">Crea tu cuenta en UpTask</p>
-        <form action="/" method="POST" class="formulario">
+        <form action="/crear" method="POST" class="formulario">
         <div class="campo">
                 <label for="nombre">Nombre</label>
                 <input
@@ -44,7 +44,7 @@
                 />
             </div>
 
-            <input type="submit" value="Iniciar Sesión" class="boton">
+            <input type="submit" value="Crear Cuenta" class="boton">
         </form>
 
         <div class="acciones">
