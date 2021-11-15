@@ -25,7 +25,7 @@ class LoginController {
     }
 
     public static function crear(Router $router){
-        
+        $alertas = [];
         $usuario = new Usuario;
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -33,8 +33,6 @@ class LoginController {
 
             $alertas = $usuario->validarNuevaCuenta();
         }
-
-        $alertas = $usuario->getAlertas();
          //render a la vista
          $router->render('auth/crear', [
             'titulo' => 'Crea tu Cuenta',
