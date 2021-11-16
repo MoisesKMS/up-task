@@ -92,7 +92,9 @@ class LoginController {
                     $usuario->guardar();
 
                     //ENVIAR EL EMAIL
-
+                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email->enviarInstrucciones();
+                    
                     //IMPRIMIR LA ALERTA
                     Usuario::setAlerta('exito', 'Enviamos las instrucciones a tu Correo Electronico');
                 } else {
