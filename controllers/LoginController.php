@@ -129,6 +129,12 @@ class LoginController {
         }
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
+            //Añadir el nuevo password
+            $usuario->sincronizar($_POST);
+
+            //validar el password
+            $alertas = $usuario->validarPassword();
+
 
         }
 

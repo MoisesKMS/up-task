@@ -29,6 +29,16 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    // Valida una contraseña
+    public function validarPassword($password){
+        if(!$this->password) self::$alertas['error'][] = 'Ingresa una contraseña';
+        if(strlen($this->password) < 6) self::$alertas['error'][] = 'La contraseña de contener al menos 6 caracteres';
+
+        if($this->password !== $this->password2) self::$alertas['error'][] = 'Las contraselas no coinciden';
+
+        return self::$alertas;
+    }
+
     public function hashPassword(){
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
