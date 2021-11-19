@@ -14,10 +14,17 @@ class LoginController {
 
             $alertas = $auth->validarLogin();
 
-            
+            if(empty($alertas)){
+                //Verificar que el usuario exista
+                $usuario = Usuario::where('email', $auth->email);
+
+                if(!$usuario || !$usuario->confirmado){
+                    Usuario::setAlerta('error', 'El usuario no Existe o no esta confirmado');
+                }
+            }
         }
 
-
+        $alertas = Usuario::getAlertas();
         //render a la vista
         $router->render('auth/login', [
             'titulo' => 'Iniciar Sesión',
