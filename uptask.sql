@@ -27,7 +27,7 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `email` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `token` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `token` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `confirmado` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;

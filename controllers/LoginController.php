@@ -38,7 +38,6 @@ class LoginController {
 
                 if($existeUsuario) {
                     Usuario::setAlerta('error', 'El usuario ya esta registrado');
-                    $alertas = Usuario::getAlertas();
                 } else {
                     // Hashear la contraseña   
                     $usuario->hashPassword();
@@ -57,13 +56,17 @@ class LoginController {
 
                     $email->enviarConfirmacion();
 
-                    if($resultado) {
+                    if($resultado['resultado']) {
                         header('Location: /mensaje');
+                    } else {
+                        Usuario::setAlerta('error', 'Hubo un error al crear tu cuenta, inteneta de nuevo (Si el problema persiste pongase en contacto con un administrador.)');
                     }
 
                 }
             }
         }
+
+        $alertas = Usuario::getAlertas();
          //render a la vista
          $router->render('auth/crear', [
             'titulo' => 'Crea tu Cuenta',
