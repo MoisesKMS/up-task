@@ -15,6 +15,15 @@ class Usuario extends ActiveRecord{
         $this->token = $args['token'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
     }
+    
+    //Validar login de usuarios
+    public function validarLogin(){
+        if(!$this->email) self::$alertas['error'][] = 'Ingresa un Email';
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) self::$alertas['error'][] = 'Ingresa un correo valido';
+        if(!$this->password) self::$alertas['error'][] = 'Ingresa una contraseña';
+
+        return self::$alertas;
+    }
 
     //validacion para cuetas nuevas
     public function validarNuevaCuenta(){
@@ -57,4 +66,6 @@ class Usuario extends ActiveRecord{
 
         return self::$alertas;
     }
+
+    
 }
