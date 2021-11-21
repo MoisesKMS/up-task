@@ -18,7 +18,8 @@
             transition-property: background-color;
             transition-duration: 200ms;
             text-transform: uppercase;
-            &:hover {
+            &:hover,
+            &.activo {
                 background-color: darken($color: v.$rosa, $amount: 20);
                 border-radius: .5rem;
             }
