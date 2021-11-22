@@ -6,7 +6,6 @@ use MVC\Router;
 
 class DashboardController{
     public static function index(Router $router){
-
         session_start();
         isAuth();
 
@@ -16,17 +15,17 @@ class DashboardController{
     }
 
     public static function crear_proyecto(Router $router){
-
         session_start();
         isAuth();
+        $alertas = [];
 
         $router->render('dashboard/crear-proyecto', [
-            'titulo' => 'Crear Proyecto'
+            'titulo' => 'Crear Proyecto',
+            'alertas' => $alertas
         ]);
     }
 
     public static function perfil(Router $router){
-
         session_start();
         isAuth();
 
