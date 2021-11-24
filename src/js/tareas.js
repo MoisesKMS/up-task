@@ -91,6 +91,10 @@
 
             const resultado = await respuesta.json();
             console.log(resultado);
+
+            referencia = document.querySelector('.formulario legend');
+            mostrarAlerta(resultado.mensaje, resultado.tipo, referencia);
+
         } catch (error) {
             console.log(error);
         }
