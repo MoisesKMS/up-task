@@ -41,17 +41,42 @@
         });
 
 
-        document.querySelector('body').appendChild(modal);
+        document.querySelector('.dashboard').appendChild(modal);
     }
 
     function submitFormularioNuevaTarea() {
         const tarea = document.querySelector('#tarea').value.trim();
         if (tarea === '') {
             //mostrar alerta
-
+            referencia = document.querySelector('.formulario legend');
+            mostrarAlerta('El nombre de la tarea es obligatorio', 'error', referencia);
             return;
         }
 
+        agregarTarea(tarea);
+    }
+
+    function mostrarAlerta(mensaje, tipo, referencia) {
+
+        //prevenir multiples alerta
+        const mostrarAlerta = document.querySelector('.alerta');
+        if (mostrarAlerta) {
+            mostrarAlerta.remove();
+        }
+
+        const alerta = document.createElement('DIV')
+        alerta.classList.add('alerta', tipo);
+        alerta.textContent = mensaje;
+
+        referencia.parentElement.insertBefore(alerta, referencia.nextElementSibling);
+
+        setTimeout(() => {
+            alerta.remove();
+        }, 3500);
+    }
+
+    //consultar el servidor para agregar una tarea
+    function agregarTarea(tarea) {
 
     }
 })();
