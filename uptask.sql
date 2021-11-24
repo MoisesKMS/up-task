@@ -30,7 +30,7 @@ CREATE TABLE `proyectos` (
   PRIMARY KEY (`id`),
   KEY `propietarioId` (`propietarioId`),
   CONSTRAINT `propietarioId` FOREIGN KEY (`propietarioId`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,35 @@ CREATE TABLE `proyectos` (
 
 LOCK TABLES `proyectos` WRITE;
 /*!40000 ALTER TABLE `proyectos` DISABLE KEYS */;
+INSERT INTO `proyectos` VALUES (3,' Ver Yuru Yuri','2eac5fb1e3d5f71cc85da691a97d143f',10),(4,' Crear Pagina','dab31c10510d322c2d4fe70b073af14f',10),(5,' Ver ranma','f0c6552dc8f8799fde3e4257093bcaf0',10),(6,' Crear Pagina knkk','fab01e3547edf67f16739c08e72d1fb2',10),(7,' Sitio de Novelas','cce77223f38c3ba775da4f03cb89da23',10);
 /*!40000 ALTER TABLE `proyectos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tareas`
+--
+
+DROP TABLE IF EXISTS `tareas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tareas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(60) DEFAULT '0',
+  `estado` tinyint(1) DEFAULT NULL,
+  `proyectoId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proyectoId` (`proyectoId`),
+  CONSTRAINT `proyectoId` FOREIGN KEY (`proyectoId`) REFERENCES `proyectos` (`id`) ON DELETE SET NULL ON UPDATE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tareas`
+--
+
+LOCK TABLES `tareas` WRITE;
+/*!40000 ALTER TABLE `tareas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tareas` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -79,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-21 23:18:17
+-- Dump completed on 2021-11-23 22:29:06
