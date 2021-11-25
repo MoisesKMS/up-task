@@ -48,6 +48,17 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    public function validar_perfil(){
+        if(!$this->nombre){
+            self::$alertas['error'][] = 'El nombre el Obligatrio';
+        }
+        if(!$this->email){
+            self::$alertas['error'][] = 'El Email el Obligatrio';
+        }
+
+        return self::$alertas;
+    }
+
     public function hashPassword(){
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }
