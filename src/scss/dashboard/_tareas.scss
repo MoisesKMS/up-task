@@ -29,6 +29,14 @@
     }
     p {
         font-size: 1.8rem;
+        transition-property: color transform;
+        transition-duration: 200ms;
+        &:hover {
+            color: v.$rosa;
+            cursor: pointer;
+            transform: translateX(.5rem);
+            font-weight: 700;
+        }
     }
     .opciones {
         display: flex;
