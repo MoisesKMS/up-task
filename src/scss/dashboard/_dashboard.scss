@@ -29,4 +29,14 @@
             font-size: 1.4rem;
         }
     }
+    .enlace {
+        color: v.$rosa;
+        font-size: 1.8rem;
+        font-weight: 700;
+        transition-property: color;
+        transition-duration: 300ms;
+        &:hover {
+            color: darken($color: v.$rosa, $amount: 20%);
+        }
+    }
 }
