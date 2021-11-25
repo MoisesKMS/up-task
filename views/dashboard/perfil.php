@@ -10,9 +10,9 @@
             <label for="nombre">Nombre</label>
             <input
                 type="text"
-                value="<?php echo $usuario->nombre; ?>"
+                value=""
                 name="nombre"
-                placeholder="Ingresa tu nombre"
+                placeholder="<?php echo $placeholder[0] ?>"
             />
         </div>
 
@@ -20,9 +20,9 @@
             <label for="email">Email</label>
             <input
                 type="email"
-                value="<?php echo $usuario->email; ?>"
+                value=""
                 name="Email"
-                placeholder="Ingresa tu Email"
+                placeholder="<?php echo $placeholder[1] ?>"
             />
         </div>
 

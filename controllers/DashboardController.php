@@ -77,6 +77,7 @@ class DashboardController{
         isAuth();
         $usuario = Usuario::find($_SESSION['id']);
         $alertas = [];
+        $placeholder = [trim($usuario->nombre), $usuario->email];
 
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             
@@ -87,7 +88,7 @@ class DashboardController{
                 //verificar que el email no exista
                 $existeUsuario = Usuario::where('email', $usuario->email);
                 
-                if($existeUsuario && $existeUsuario->id !== $usuario->id){
+                if($existeUsuario && $existeUsuario->id !== $_SESSION['id']){
                     //mostrar error
                     Usuario::setAlerta('error', 'El correo ya esta asignado a otro Usuario');
 
@@ -107,7 +108,8 @@ class DashboardController{
         $router->render('dashboard/perfil', [
             'titulo' => 'Perfil',
             'usuario' => $usuario,
-            'alertas' => $alertas
+            'alertas' => $alertas,
+            'placeholder' => $placeholder
         ]);
     }
 
